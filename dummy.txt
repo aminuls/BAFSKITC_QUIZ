@@ -1,0 +1,273 @@
+1.Total bits used by the IPv6 address is ____
+
+64 bit
+
+256 bit
+
+128 bit
+
+32 bit
+
+2.Identify the language which is mainly used for Artificial Intelligence
+
+Java
+
+J2EE
+
+Prolog
+
+C
+
+3.Why is a firewall used in a computer?
+
+Monitoring
+
+data transmission
+
+Authentication
+
+security
+
+4.How many levels are there in the architecture of the database?
+
+2
+
+3
+
+4
+
+5
+
+5.Among the following which is not a database management software
+
+MySQL
+
+COBOL
+
+Sybase
+
+Oracle
+6.Choose the port number of FTP.
+
+23
+
+21
+
+110
+
+143
+7.UNIX is written in which language?
+
+C#
+
+C++
+
+C
+
+.Net
+8.Identify the different features of Big Data Analytics.
+
+open source
+
+data recovery
+
+Scalability
+
+All of the above
+9.Which of the following is an extension of image file?
+
+.mkv
+
+.gif
+
+.txt
+
+.vdf
+10.The main memory of a computer system is?
+
+Non-volatile
+
+Volatile
+
+Restricted
+
+Unrestricted
+11.Identify among the following servers which allow LAN users to share data.
+
+Communication server
+
+Point server
+
+Data server
+
+File server
+12.URL stands for ___________
+
+Uninterrupted data locator
+
+Uninterrupted record locator
+
+uniform record locator
+
+uniform resource locator
+13.SSLstands for ___________
+
+secure socket layer
+
+secure secret level
+
+secure system level
+
+section security layer
+14.Which of the following is not a SQL command?
+
+DELETE
+
+ORDER BY
+
+SELECT
+
+WHERE
+15.Identify the range of byte data types in JavaScript
+
+-10 to 9
+
+- 128 to 127
+
+-32768 to 32767
+
+-2147483648 to 2147483647
+16.Computer word size is a multiple of __ bits
+
+4 bits
+
+10 bits
+
+16 bits
+
+1024 bits
+17.Testing of program’s corporate is known as?
+
+System testing
+
+ isolation testing
+
+pilot testing
+
+unit-testing
+18.Information in computer read-only memory stored by
+
+Engineer
+
+Programmer
+
+Manufacturer
+
+user
+19.Identify the call which never returns an error?
+
+fork
+
+getpid
+
+ioctl
+
+open
+20.Which of the following does computer hardware consist of?
+
+storage devices
+
+CPU
+
+I/O devices
+
+all of the above
+21.In what terms is Computer memory measured?
+
+Units
+
+Bitstheatre 
+
+Cells
+
+bytes
+22.Which of the following memory of the computer is volatile?
+
+EEPROM
+
+RAM
+
+ROM
+
+CMOS
+23.Using which of the following is the interconnection of the computer possible?
+
+communication links
+
+Cables
+
+ information technology
+
+processing
+24.LPT stands for __________
+
+Low print typewriter
+
+ line per text
+
+line printer
+
+laser printer
+25.What are modern computers based on?
+
+Microchip
+
+Microprocessor
+
+I/O devices
+
+both a and b
+26.What else is a command interpreter called?
+
+prompt
+
+kernel
+
+command
+
+shell
+27.Where can the data be updated?
+
+Informational environment
+
+Data warehouse environment
+
+Operational environment
+
+Data mining environment
+28.Identify the one which is not a networking device.
+
+Switch
+
+Traffic analyzer
+
+Bridge
+
+Router
+29.The standard length of the MAC address is
+
+16 bits
+
+48 bits
+
+32 bits
+
+8 bits
+30.What is the best club of BAF Shaheen College Kurmitola?
+BAFSKPC
+
+BAFSKCC
+
+BAFSKITC
+
+BAFSKSC
