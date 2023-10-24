@@ -177,7 +177,7 @@ const Quiz = () => {
       <Container maxWidth="fixed">
          <Box sx={{ flexGrow: 1 }}>
             <form onSubmit={handleSubmit}>
-               <Grid container spacing={{ xs: 5, sm: 3 }}>
+               <Grid container rowSpacing={{ xs: 5, sm: 3 }} columnSpacing={{ xs: 0, sm: 3 }}>
                   {questions.map((ques) => (
                      <>
                         <Grid key={ques.id} xs={12} md={6}>
