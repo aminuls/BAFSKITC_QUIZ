@@ -1,7 +1,7 @@
-input[type="radio"]{
+input[type="radio"] {
    display: none;
 }
-label{
+label {
    position: relative;
    width: 100%;
    display: flex;
@@ -10,8 +10,24 @@ label{
    padding: 14px 8px;
    transition: background-color 0.25s ease;
 }
-input[type="radio"]:checked + label{
+input[type="radio"]:checked + label {
    color: white;
    background-color: #00a152;
-;
+}
+input[type="text"] {
+   border: 2px solid red;
+}
+.quizSubmit {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin: 30px 0 50px;
+}
+input[type="submit"] {
+   background-color: #00a152;
+   font-size: 24px;
+   padding: 10px 40px;
+   border-radius: 5px;
+   color: white;
+   box-shadow: 10px 6px 20px -6px rgba(0, 0, 0, 0.75);
 }
