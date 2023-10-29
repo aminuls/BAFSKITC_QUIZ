@@ -19,10 +19,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/BAFSKITC.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Person4Icon from "@mui/icons-material/Person4";
 
 function Header(props) {
    const navigate = useNavigate();
    const { user, logOut } = useContext(AuthContext);
+   console.log(user);
    const handleLogOut = () => {
       logOut()
          .then(() => {
@@ -72,7 +74,9 @@ function Header(props) {
                      </ListItem>
                      <ListItem disablePadding>
                         <ListItemButton sx={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
-                           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                           <Avatar>
+                              <Person4Icon></Person4Icon>
+                           </Avatar>
                         </ListItemButton>
                      </ListItem>
                   </>
@@ -121,7 +125,7 @@ function Header(props) {
                   </div>
                   <Box sx={{ display: { md: "block" } }}>
                      {navItems.map((item) => (
-                        <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to={item?.path} key={item}>
+                        <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to={item?.path} key={item?.name}>
                            <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }}>
                               <p className="navItem">{item?.name}</p>
                            </Button>
@@ -150,7 +154,9 @@ function Header(props) {
                         </>
                      )}
                   </Box>
-                  <Avatar sx={{ display: { md: "flex" } }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                  <Avatar sx={{ display: { md: "flex" } }}>
+                     <Person4Icon></Person4Icon>
+                  </Avatar>
                </div>
             </Toolbar>
          </AppBar>

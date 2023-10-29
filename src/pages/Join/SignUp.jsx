@@ -38,10 +38,9 @@ export default function SignUp() {
       createUser(data.email, data.password)
          .then((result) => {
             const user = result.user;
-            console.log(user);
+            console.log(user, data);
             const userInfo = {
                displayName: `${data.first_name} ${data.last_name}`,
-               phoneNumber: data.tel,
             };
             updateUser(userInfo)
                .then(() => {
@@ -69,7 +68,7 @@ export default function SignUp() {
          section,
          roll,
       };
-      fetch("http://localhost:5000/users", {
+      fetch("https://quiz-server-gmj0llnnp-aminuls.vercel.app/users", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -134,7 +133,7 @@ export default function SignUp() {
                      )}
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                     <TextField autoCapitalize type="text" {...register("section", { required: "Section is Required" })} fullWidth label="Section (Ex- THETA)" />
+                     <TextField type="text" {...register("section", { required: "Section is Required" })} fullWidth label="Section (Ex- THETA)" />
                      {errors.section && (
                         <p role="alert" className="text-red-700 pt-1 pl-1">
                            {errors.section?.message}
