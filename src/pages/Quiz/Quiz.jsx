@@ -22,7 +22,7 @@ const handleSubmit = (e) => {
    const allAns = [];
    const form = e.target;
    allInputName.map((name) => allAns.push({ Ques_No: name, Ans: form[name].value }));
-   fetch("https://quiz-server-gmj0llnnp-aminuls.vercel.app/answer", {
+   fetch("https://quiz-server-three.vercel.app/answer", {
       method: "POST",
       headers: {
          "content-type": "application/json",
@@ -40,7 +40,7 @@ const Quiz = () => {
    const [showControl, setShowControl] = useState(false);
 
    useEffect(() => {
-      fetch("https://quiz-server-gmj0llnnp-aminuls.vercel.app/questions")
+      fetch("https://quiz-server-three.vercel.app/questions")
          .then((res) => res.json())
          .then((data) => setQuestions(data));
    }, []);

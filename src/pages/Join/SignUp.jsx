@@ -68,7 +68,7 @@ export default function SignUp() {
          section,
          roll,
       };
-      fetch("https://quiz-server-gmj0llnnp-aminuls.vercel.app/users", {
+      fetch("https://quiz-server-three.vercel.app/users", {
          method: "POST",
          headers: {
             "content-type": "application/json",
