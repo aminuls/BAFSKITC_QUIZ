@@ -15,18 +15,29 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Avatar } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/BAFSKITC.png";
-
-const drawerWidth = 240;
-const navItems = [
-   { name: "Home", path: "/" },
-   { name: "Quiz", path: "/quiz" },
-   { name: "About", path: "/about" },
-   { name: "Contact", path: "/contact" },
-];
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 function Header(props) {
+   const navigate = useNavigate();
+   const { user, logOut } = useContext(AuthContext);
+   const handleLogOut = () => {
+      logOut()
+         .then(() => {
+            navigate("/login");
+         })
+         .catch((error) => console.log(error));
+   };
+   const drawerWidth = 240;
+   const navItems = [
+      { name: "Home", path: "/" },
+      { name: "Quiz", path: "/quiz" },
+      { name: "About", path: "/about" },
+      { name: "Contact", path: "/contact" },
+   ];
+
    const { window } = props;
    const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -41,19 +52,48 @@ function Header(props) {
          <List>
             <>
                {navItems.map((item) => (
-                  <ListItem key={item.name} disablePadding>
+                  <ListItem key={item?.name} disablePadding>
                      <ListItemButton sx={{ textAlign: "center" }}>
-                        <Link className="font-medium text-center w-full" to={item.path}>
-                           <ListItemText>{item.name}</ListItemText>
+                        <Link className="font-medium text-center w-full" to={item?.path}>
+                           <ListItemText className="navItem">{item?.name}</ListItemText>
                         </Link>
                      </ListItemButton>
                   </ListItem>
                ))}
-               <ListItem disablePadding>
-                  <ListItemButton sx={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
-                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                  </ListItemButton>
-               </ListItem>
+               {user?.uid ? (
+                  <>
+                     <ListItem disablePadding>
+                        <ListItemButton className="font-medium text-center w-full" onClick={handleLogOut} sx={{ textAlign: "center" }}>
+                           {/* <Link className="font-medium text-center w-full" to="/logout">
+                              
+                           </Link> */}
+                           <ListItemText className="navItem">Log out</ListItemText>
+                        </ListItemButton>
+                     </ListItem>
+                     <ListItem disablePadding>
+                        <ListItemButton sx={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
+                           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                        </ListItemButton>
+                     </ListItem>
+                  </>
+               ) : (
+                  <>
+                     <ListItem disablePadding>
+                        <ListItemButton sx={{ textAlign: "center" }}>
+                           <Link className="font-medium text-center w-full" to="/login">
+                              <ListItemText className="navItem">Log in</ListItemText>
+                           </Link>
+                        </ListItemButton>
+                     </ListItem>
+                     <ListItem disablePadding>
+                        <ListItemButton sx={{ textAlign: "center" }}>
+                           <Link className="font-medium text-center w-full" to="/join">
+                              <ListItemText className="navItem">Join</ListItemText>
+                           </Link>
+                        </ListItemButton>
+                     </ListItem>
+                  </>
+               )}
             </>
          </List>
       </Box>
@@ -76,15 +116,39 @@ function Header(props) {
                   <div className="hidden md:flex place-items-center">
                      <img src={Logo} width="140px" className="hidden md:flex"></img>
                      <Typography variant="h6" component="div" sx={{ display: { md: "block" } }}>
-                        BAFSKITC
+                        <p className="logoName">BAFSKITC</p>
                      </Typography>
                   </div>
                   <Box sx={{ display: { md: "block" } }}>
                      {navItems.map((item) => (
-                        <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to={item.path} key={item}>
-                           <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }}>{item.name}</Button>
+                        <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to={item?.path} key={item}>
+                           <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }}>
+                              <p className="navItem">{item?.name}</p>
+                           </Button>
                         </Link>
                      ))}
+                     {user?.uid ? (
+                        <>
+                           <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to="/login">
+                              <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }} onClick={handleLogOut}>
+                                 <p className="navItem">Log out</p>
+                              </Button>
+                           </Link>
+                        </>
+                     ) : (
+                        <>
+                           <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to="/login">
+                              <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }}>
+                                 <p className="navItem">Log in</p>
+                              </Button>
+                           </Link>
+                           <Link className="m-0 md:m-2 lg:m-4 xl:m-6" to="/join">
+                              <Button sx={{ color: "#fff", fontSize: "16px", fontWeight: "500" }}>
+                                 <p className="navItem">Join</p>
+                              </Button>
+                           </Link>
+                        </>
+                     )}
                   </Box>
                   <Avatar sx={{ display: { md: "flex" } }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                </div>

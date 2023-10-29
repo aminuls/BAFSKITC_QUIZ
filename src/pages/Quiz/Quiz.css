@@ -1,7 +1,7 @@
 input[type="radio"] {
    display: none;
 }
-label {
+label.quizOpt {
    position: relative;
    width: 100%;
    display: flex;
@@ -13,9 +13,6 @@ label {
 input[type="radio"]:checked + label {
    color: white;
    background-color: #00a152;
-}
-input[type="text"] {
-   border: 2px solid red;
 }
 .quizSubmit {
    width: 100%;

@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home";
 import Quiz from "../pages/Quiz/Quiz";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import Login from "../pages/Login/Login";
+import Join from "../pages/Join/Join";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 export const router = createBrowserRouter([
    {
       path: "/",
@@ -15,7 +18,11 @@ export const router = createBrowserRouter([
          },
          {
             path: "/quiz",
-            element: <Quiz></Quiz>,
+            element: (
+               <PrivetRoute>
+                  <Quiz></Quiz>
+               </PrivetRoute>
+            ),
          },
          {
             path: "/about",
@@ -24,6 +31,14 @@ export const router = createBrowserRouter([
          {
             path: "/contact",
             element: <Contact></Contact>,
+         },
+         {
+            path: "/login",
+            element: <Login></Login>,
+         },
+         {
+            path: "/join",
+            element: <Join></Join>,
          },
       ],
    },
