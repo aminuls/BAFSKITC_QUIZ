@@ -3,37 +3,165 @@
    { id: "ITC02", question: "Identify the language which is mainly used for Artificial Intelligence", opt1: "Java", opt2: "J2EE", opt3: "Prolog", opt4: "C", ans: "Prolog" },
    { id: "ITC03", question: "Why is a firewall used in a computer?", opt1: "Monitoring", opt2: "Data Transmission", opt3: "Authentication", opt4: "Security", ans: "Security" },
 ];
-
-import React, { useEffect, useState } from "react";
-
-const Timer = ({ setShowControl }) => {
-   const end = new Date("5 November 2023 9:50 PM");
-   const now = new Date();
-   const diff = Math.round((end - now) / 1000);
-   const [timer, setTimer] = useState(diff);
-   const dd = Math.floor(diff / 3600 / 24);
-   const hh = Math.floor(diff / 3600) % 24;
-   const mm = Math.floor(diff / 60) % 60;
-   const ss = Math.floor(diff) % 60;
-
-   useEffect(() => {
-      //Implementing the setInterval method
-      const interval = setInterval(() => {
-         setTimer(timer - 1);
-      }, 1000);
-      if (timer < 1) {
-         setShowControl(true);
-         clearInterval(interval);
-      }
-
-      //Clearing the interval
-      return () => clearInterval(interval);
-   }, [timer, setShowControl]);
-   return (
-      <div>
-         <p className="font-bold text-3xl px-4 sm:text-4xl pt-5 text-center">{`${dd} Day ${hh} Hour ${mm} Minute ${ss} Second`}</p>
-      </div>
-   );
-};
-
-export default Timer;
+[
+   {
+      id: "ITC01",
+      question: "Total bits used by the IPv6 address is __",
+      opt1: "64 bit",
+      opt2: "256 bit",
+      opt3: "128 bit",
+      opt4: "32 bit",
+   },
+   {
+      id: "ITC02",
+      question: "Identify the language which is mainly used for Artificial Intelligence",
+      opt1: "Java",
+      opt2: "J2EE",
+      opt3: "Prolog",
+      opt4: "C",
+   },
+   {
+      id: "ITC03",
+      question: "Why is a firewall used in a computer?",
+      opt1: "Monitoring",
+      opt2: "Data Transmission",
+      opt3: "Authentication",
+      opt4: "Security",
+   },
+   {
+      id: "ITC04",
+      question: "How many levels are there in the architecture of the database?",
+      opt1: 2,
+      opt2: 3,
+      opt3: 4,
+      opt4: 5,
+   },
+   {
+      id: "ITC05",
+      question: "Which of the following is an extension of image file?",
+      opt1: ".mkv",
+      opt2: ".gif",
+      opt3: ".txt",
+      opt4: ".vdf",
+   },
+   {
+      id: "ITC06",
+      question: "Identify among the following servers which allow LAN users to share data.",
+      opt1: "Communication Server",
+      opt2: "Point Server",
+      opt3: "Data Server",
+      opt4: "File Server",
+   },
+   {
+      id: "ITC07",
+      question: "URL stands for _________",
+      opt1: "Uninterrupted Data Locator",
+      opt2: "Uninterrupted Record Locator",
+      opt3: "Uniform Record Locator.",
+      opt4: "Uniform Resource Locator.",
+   },
+   {
+      id: "ITC08",
+      question: "SSL stands for _________",
+      opt1: "Secure Socket Layer",
+      opt2: "Secure Secret Level",
+      opt3: "Secure System Level",
+      opt4: "Section Security Layer",
+   },
+   {
+      id: "ITC09",
+      question: "Computer word size is a multiple of __ bits",
+      opt1: "4 bits",
+      opt2: "10 bits",
+      opt3: "16 bits",
+      opt4: "1024 bits",
+   },
+   {
+      id: "ITC10",
+      question: "Information in computer read-only memory stored by",
+      opt1: "Engineer",
+      opt2: "Programmer",
+      opt3: "Manufacturer",
+      opt4: "User",
+   },
+   {
+      id: "ITC11",
+      question: "Identify the call which never returns an error?",
+      opt1: "fork",
+      opt2: "getpid",
+      opt3: "ioctl",
+      opt4: "open",
+   },
+   {
+      id: "ITC12",
+      question: "Which of the following does computer hardware consist of?",
+      opt1: "Storage devices",
+      opt2: "CPU",
+      opt3: "I/O devices",
+      opt4: "All of the Above",
+   },
+   {
+      id: "ITC13",
+      question: "In what terms is Computer memory measured?",
+      opt1: "Units",
+      opt2: "Bitstheatre",
+      opt3: "Cells",
+      opt4: "Bytes",
+   },
+   {
+      id: "ITC14",
+      question: "Which of the following memory of the computer is volatile?",
+      opt1: "EEPROM",
+      opt2: "RAM",
+      opt3: "ROM",
+      opt4: "CMOS",
+   },
+   {
+      id: "ITC15",
+      question: "Using which of the following is the interconnection of the computer possible?",
+      opt1: "Communication Links",
+      opt2: "Cables",
+      opt3: "Information Technology",
+      opt4: "Processing",
+   },
+   {
+      id: "ITC16",
+      question: "What is Browser?",
+      opt1: "A computer program with a graphical user interface for displaying and navigating between web pages.",
+      opt2: "A computer program with a graphical user interface for displaying and navigating between apps.",
+      opt3: "A computer program with a graphical user interface for displaying web-apps.",
+      opt4: "A computer program with a graphical user interface for displaying websites.",
+   },
+   {
+      id: "ITC17",
+      question: "PHP Stands for _____?",
+      opt1: "Preprocessor Hypertext Preprocessor.",
+      opt2: "Hypertext Processor.",
+      opt3: "Hyperlink Preprocessor.",
+      opt4: "Hypertext Preprocessor.",
+   },
+   {
+      id: "ITC18",
+      question: "Additional Features of SEO?",
+      opt1: "Organic search traffic market share.",
+      opt2: "Content optimization analysis.",
+      opt3: "Keyword research and rank tracking.",
+      opt4: "Competitive analysis.",
+   },
+   {
+      id: "ITC19",
+      question: "Which of the following is world's earlier programming language?",
+      opt1: "B Programming",
+      opt2: "C Programming",
+      opt3: "Assembly",
+      opt4: "JAVA",
+   },
+   {
+      id: "ITC20",
+      question: "What is AI?",
+      opt1: "A Software.",
+      opt2: "An application.",
+      opt3: "A program.",
+      opt4: "All of above.",
+   },
+];

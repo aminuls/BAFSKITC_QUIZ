@@ -21,8 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const Quiz = () => {
    const isFormSubmitted = useLoaderData();
 
-   const { user } = useContext(AuthContext);
-   // console.log(user);
+   const { user, loading } = useContext(AuthContext);
    const [questions, setQuestions] = useState([]);
    const [showControl, setShowControl] = useState(false);
    const [closeControl, setCloseControl] = useState(false);
@@ -34,11 +33,12 @@ const Quiz = () => {
          .then((res) => res.json())
          .then((data) => setQuestions(data));
    }, []);
-   if (navigation.state === "loading") {
+   if ((navigation.state === "loading", loading)) {
       return <Loading></Loading>;
    }
    if (isFormSubmitted.length > 0) {
       const found = isFormSubmitted.find((email) => email.details.email === user.email);
+      console.log(found);
       if (found) {
          console.log("found");
       } else {
@@ -49,13 +49,11 @@ const Quiz = () => {
    }
 
    const allInputName = [];
-   // console.log(allInputName);
    const handleSubmit = (e) => {
       e?.preventDefault();
       const allAns = [];
       const form = document.getElementById("formEvent");
       allInputName.map((name) => allAns.push({ Ques_No: name, Ans: form[name].value }));
-      // const readyToFetch = [{ email: user.email, name: user.displayName }, [...allAns]];
       const readyToFetch = { details: { email: user.email, name: user.displayName }, answers: [...allAns] };
       fetch("https://bafskitcserver.up.railway.app/answer", {
          method: "POST",
@@ -81,7 +79,7 @@ const Quiz = () => {
          return (
             <>
                <p className="font-semibold text-2xl sm:text-3xl text-center">Quiz will be start after</p>
-               <Timer timerState={setShowControl} endTime={"31 October 2023 02:28 PM"} classes={"mt-4 text-4xl"}></Timer>
+               <Timer timerState={setShowControl} endTime={"01 November 2023 09:00 PM"} classes={"mt-4 text-4xl"}></Timer>
             </>
          );
       }
@@ -91,7 +89,7 @@ const Quiz = () => {
       } else {
          return (
             <Container maxWidth="fixed">
-               <Timer timerState={setCloseControl} endTime={"01 November 2023 02:20 PM"} classes={"mb-4 text-lg text-right"}></Timer>
+               <Timer timerState={setCloseControl} endTime={"01 November 2023 09:20 PM"} classes={"mb-4 text-lg text-right"}></Timer>
                <Box sx={{ flexGrow: 1 }}>
                   <form onSubmit={handleOneSubmission || !(isFormSubmitted.length > 0) ? handleSubmit : undefined} id="formEvent">
                      <Grid className="allQuiz" container rowSpacing={{ xs: 5, sm: 3 }} columnSpacing={{ xs: 0, sm: 3 }}>
@@ -152,17 +150,11 @@ const Quiz = () => {
             </Container>
          );
       }
-   } else if (showControl && closeControl && (handleOneSubmission || !(isFormSubmitted.length > 0))) {
-      return handleSubmit();
    } else if (showControl && closeControl) {
-      // handleSubmit();
-      return <p className="text-2xl sm:text-3xl font-medium text-center text-green-600">You already submit this Quiz</p>;
+      return <p className="text-2xl sm:text-3xl font-medium text-center text-green-600 font-serif">{`Time's UP`}</p>;
    } else {
       return <p className="text-2xl text-red-500">Something went Wrong!</p>;
    }
-   //
-
-   //
 };
 
 export default Quiz;
