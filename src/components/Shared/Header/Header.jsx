@@ -24,7 +24,7 @@ import Person4Icon from "@mui/icons-material/Person4";
 function Header(props) {
    const navigate = useNavigate();
    const { user, logOut } = useContext(AuthContext);
-   console.log(user);
+   // console.log(user);
    const handleLogOut = () => {
       logOut()
          .then(() => {

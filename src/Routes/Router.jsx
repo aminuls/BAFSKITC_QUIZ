@@ -18,6 +18,7 @@ export const router = createBrowserRouter([
          },
          {
             path: "/quiz",
+            loader: () => fetch("https://bafskitcserver.up.railway.app/answer"),
             element: (
                <PrivetRoute>
                   <Quiz></Quiz>

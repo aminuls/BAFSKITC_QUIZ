@@ -4,7 +4,7 @@ import Header from "../components/Shared/Header/Header";
 
 const Layout = () => {
    return (
-      <div className="min-h-screen flex flex-col justify-center items-center">
+      <div className="min-h-[90vh] flex flex-col justify-center items-center">
          <Header></Header>
          <Outlet></Outlet>
          <Footer></Footer>

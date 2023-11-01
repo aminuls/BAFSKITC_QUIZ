@@ -106,11 +106,11 @@ export default function SignIn() {
                <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                   Sign In
                </Button>
-               <Grid container>
-                  <Grid item xs>
-                     <Link to="/">Forgot password?</Link>
+               <Grid container spacing={2}>
+                  <Grid item xs={5}>
+                     <Link to="/">{"Forgot password?"}</Link>
                   </Grid>
-                  <Grid item>
+                  <Grid item xs={7}>
                      <Link to="/join">{"Don't have an account? Sign Up"}</Link>
                   </Grid>
                </Grid>

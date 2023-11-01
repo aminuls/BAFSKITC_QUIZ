@@ -30,10 +30,12 @@ export default function SignUp() {
       handleSubmit,
       formState: { errors },
    } = useForm();
+   const [enabledButton, setEnabledButton] = useState(true);
    const [signUpError, setSignUpError] = useState(null);
    const { createUser, updateUser } = useContext(AuthContext);
    const navigate = useNavigate();
    const handleSignUp = (data) => {
+      setEnabledButton(false);
       setSignUpError(null);
       createUser(data.email, data.password)
          .then((result) => {
@@ -44,10 +46,9 @@ export default function SignUp() {
             };
             updateUser(userInfo)
                .then(() => {
-                  saveUserData(data.first_name, data.last_name, data.email, data.tel, data.year, data.version, data.section, data.roll);
+                  saveUserData(data.first_name, data.last_name, data.email, data.tel, data.social, data.year, data.version, data.section, data.roll);
                   console.log(userInfo);
                   console.log(user);
-                  // adfadfada
                   navigate("/");
                })
                .catch((error) => console.error(error));
@@ -56,19 +57,21 @@ export default function SignUp() {
             setSignUpError(error.message);
             console.error(error.message);
          });
+      setEnabledButton(true);
    };
-   const saveUserData = (firstName, lastName, email, phone, year, version, section, roll) => {
+   const saveUserData = (firstName, lastName, email, phone, social = "Not given", year, version, section, roll) => {
       const user = {
          firstName,
          lastName,
          email,
+         social,
          phone,
          year,
          version,
          section,
          roll,
       };
-      fetch("https://quiz-server-three.vercel.app/users", {
+      fetch("https://bafskitcserver.up.railway.app/users", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -159,6 +162,9 @@ export default function SignUp() {
                   </Grid>
                   {/*  */}
                   <Grid item xs={12}>
+                     <TextField type="text" {...register("social")} fullWidth label="Facebook ID (Optional)" autoComplete="social" />
+                  </Grid>
+                  <Grid item xs={12}>
                      <TextField type="email" {...register("email", { required: "Email Address is Required" })} fullWidth label="Email Address" autoComplete="email" />
                      {errors.email && (
                         <p role="alert" className="text-red-700 pt-1 pl-1">
@@ -174,7 +180,7 @@ export default function SignUp() {
                         {...register("password", {
                            required: "Password is Required",
                            minLength: { value: 6, message: "Password must be 6 characters or longer" },
-                           pattern: { value: /(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)/, message: "Password must contains one uppercase letter and one number" },
+                           pattern: { value: /(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)/, message: "Password must contains one uppercase letter, one lowercase letter and one number" },
                         })}
                         autoComplete="new-password"
                      />
@@ -185,7 +191,7 @@ export default function SignUp() {
                      )) ||
                         (signUpError && (
                            <p role="alert" className="text-red-700 pt-1 pl-1">
-                              {signUpError}
+                              {signUpError === "Firebase: Error (auth/email-already-in-use)." ? "This email is already used. Please Log in or use another email" : signUpError}
                            </p>
                         ))}
                   </Grid>
@@ -204,7 +210,7 @@ export default function SignUp() {
                      )}
                   </Grid>
                </Grid>
-               <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+               <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} disabled={enabledButton ? "" : "off"}>
                   Sign Up
                </Button>
                <Grid container justifyContent="flex-end">
